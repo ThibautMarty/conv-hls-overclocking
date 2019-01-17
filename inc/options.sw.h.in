@@ -1,0 +1,11 @@
+#ifndef __OPTIONS_SW_H
+#define __OPTIONS_SW_H
+
+// This file contains options used exclusively in
+// software code. Other options (used in hardware
+// code) go to options.h
+
+#cmakedefine INPUT_CLK @INPUT_CLK@
+#cmakedefine SAFE_CLK @SAFE_CLK@
+
+#endif // __OPTIONS_SW_H

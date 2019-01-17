@@ -1,0 +1,3 @@
+[submodule "pfm"]
+	path = pfm
+	url = https://github.com/ThibautMarty/sdsoc-overclocking-pfm

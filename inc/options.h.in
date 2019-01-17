@@ -1,0 +1,55 @@
+#ifndef __OPTIONS_H
+#define __OPTIONS_H
+
+// This file contains options used in hardware code
+// Other options go to options.sw.h to avoid (long)
+// useless compilation of accelerators
+
+// Xilinx custom types
+#include "ap_int.h"
+#include "ap_fixed.h"
+
+// Data types
+#cmakedefine DATA_WL @DATA_WL@
+typedef ap_int<DATA_WL> data_in_t;
+typedef ap_int<data_in_t::width * 2> data_out_t;
+typedef ap_int<data_in_t::width * 2> data_checksum_t;
+typedef ap_int<data_in_t::width * 2> data_pe_t;
+
+#cmakedefine OPTIDSP
+#cmakedefine OPTIDSPSTEPS @OPTIDSPSTEPS@
+#cmakedefine NODSP
+
+#cmakedefine PLATFORM @PLATFORM@
+
+// Enable some code sections
+#cmakedefine ENABLE_HARDWARE_ABFT
+
+#cmakedefine BATCHES @BATCHES@
+
+// Tile sizes
+#cmakedefine Tr @Tr@
+#cmakedefine Tc @Tc@
+#cmakedefine Tm @Tm@
+#cmakedefine Tn @Tn@
+
+// Unroll factor
+#cmakedefine Um @Um@
+#cmakedefine Un @Un@
+
+// Array partition factor (computed)
+#cmakedefine Partn @Partn@
+#cmakedefine Partm @Partm@
+
+// Convolution parameters
+#cmakedefine N @N@
+#cmakedefine M @M@
+#cmakedefine R @R@
+#cmakedefine C @C@
+#cmakedefine S @S@
+#cmakedefine K @K@
+
+#cmakedefine K2 @K2@
+#cmakedefine OUTPUT_FIFO_DEPTH @OUTPUT_FIFO_DEPTH@
+
+#endif // __OPTIONS_H
