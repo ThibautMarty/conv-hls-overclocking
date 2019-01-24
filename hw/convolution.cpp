@@ -102,7 +102,7 @@ int convolution(
 #else
   data_in_t incs[TILES];
   data_out_t outcs;
-  int ir, ic;
+  int ito, ir, ic;
 #endif
 
   input_tile =
