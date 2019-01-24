@@ -249,7 +249,7 @@ Zynq> bootm 0x1000000
 
 root@zc706:~# cd /mnt
 root@zc706:/mnt# export LD_LIBRARY_PATH=.
-root@zc706:/mnt# ./error_rate 1000 200 | tee log
+root@zc706:/mnt# ./error_rate.bin 1000 200 | tee log
 ```
 
 # Technical details
@@ -259,7 +259,7 @@ root@zc706:/mnt# ./error_rate 1000 200 | tee log
 The file hierarchy follows my [SDSoC cmake template](https://gitlab.inria.fr/tmarty/sdsoc-cmake-template).
 In summary:
 
-* `hw` directory contains HLS code and call wrapper, compiled with `sds++` (i.e SDSoC) as a shared library
+* `hw` contains HLS code and call wrapper, compiled with `sds++` (i.e SDSoC) as a shared library
 * `inc` contains headers
 * `tests` contains test code using [Google Test framework](https://github.com/google/googletest)
 * `src` contains non-HLS code, including executables' `main`, compiled with the cross-compiler, dynamically linked to the shared library
@@ -271,10 +271,10 @@ In summary:
 
 Top-level function for Vivado HLS.
 It loops over tiles and call all others function for each tile, building the dataflow.
-There is two levels of tile loop:
+There is two levels of tile loops:
 
-* one level for output tile (grouping three dimensions)
-* one level for input tile
+* output tile (grouping three dimensions)
+* input tile
 
 One output tile is computed from several input tiles. The signals `start` and `end` tell each dataflow actor if the current input tile is the first or the last one used to compute the current output tile.
 
@@ -342,9 +342,9 @@ The `end` function allows to simply scan all frequencies:
 for(clkwiz->restart(); !clkwiz->end(); freq = clkwiz->next())
 ```
 
-### Add a new program
+### Add a new executable
 
-To add a program using the shared library and accelerator, follow this steps:
+To add a executable using the shared library and accelerator, follow this steps:
 
 Write your program in c++ files in the `src` directory, including relevant headers:
 ```c++
