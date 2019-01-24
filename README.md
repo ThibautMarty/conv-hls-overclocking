@@ -342,6 +342,12 @@ The `end` function allows to simply scan all frequencies:
 for(clkwiz->restart(); !clkwiz->end(); freq = clkwiz->next())
 ```
 
+Note that in order to work, it just needs a clocking wizard to be reachable through AXI bus.
+The AXI base address can be modified if needed in the file `inc/clkwiz.h`:
+```c++
+#define BASEADDR  0x43C00000
+```
+
 ### Add a new executable
 
 To add a executable using the shared library and accelerator, follow this steps:
