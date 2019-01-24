@@ -483,7 +483,6 @@ void hw_incs(
 /* #pragma HLS RESOURCE variable=section core=RAM_S2P_LUTRAM */
 /* #pragma HLS RESOURCE variable=X core=RAM_S2P_LUTRAM // Note: this one could be 1P, but S2P uses less LUT (more FF) */
 
-DO_PRAGMA(HLS ARRAY_PARTITION variable=section complete dim=1)
 DO_PRAGMA(HLS ARRAY_PARTITION variable=X cyclic factor=2 dim=1)
 DO_PRAGMA(HLS ARRAY_PARTITION variable=X cyclic factor=2 dim=2)
 
